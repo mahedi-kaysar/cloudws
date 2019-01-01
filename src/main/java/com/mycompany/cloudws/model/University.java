@@ -2,9 +2,15 @@ package com.mycompany.cloudws.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
+/**
+ *
+ */
 @Entity
-@Table(name = "university")
+@Table(
+    name = "universities",
+    uniqueConstraints={@UniqueConstraint(columnNames ={"registrationNumber", "name"})})
 public class University implements Serializable {
 
   /**
@@ -24,16 +30,24 @@ public class University implements Serializable {
   /**
    *
    */
+  @Column(nullable = false)
+  private String registrationNumber;
+
+  /**
+   *
+   */
   public University() {}
 
   /**
    *
    * @param universityId
    * @param name
+   * @param registrationNumber
    */
-  public University(int universityId, String name) {
+  public University(int universityId, String name, String registrationNumber) {
     this.universityId = universityId;
     this.name = name;
+    this.registrationNumber = registrationNumber;
   }
 
   /**
