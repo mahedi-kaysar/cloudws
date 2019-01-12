@@ -23,7 +23,7 @@ jobs:
             apt-get install -y maven
       - run:
           name: create mysql database (cloudws)
-          command: mysql -h 127.0.0.1 -u root -p password -e "create database cloudws;
+          command: mysql -h 127.0.0.1 -u root -p password -e "create database cloudws;"
       - run:
           name: build cloudws project.
           command: mvn clean install
