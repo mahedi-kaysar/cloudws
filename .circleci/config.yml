@@ -21,8 +21,10 @@ jobs:
             apt-get -y upgrade
             apt-get install -y openjdk-8-jdk
             apt-get install -y maven
-            mvn clean install
       - run:
           name: Mysql database
           command: mysql -h 127.0.0.1 -u root -p password -e "create database cloudws;
+      - run:
+          name: build cloudws project.
+          command: mvn clean install
 
