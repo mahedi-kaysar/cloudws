@@ -3,6 +3,15 @@ jobs:
   build:
     docker:
       - image: ubuntu:16.04
+        environment:
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_DB: cloudws
+          MYSQL_USER: root
+          MYSQL_PASSWORD: passsword
+      - image: mysql: 5.7
+        environment:
+          MYSQL_USER: root
+          MYSQL_PASSWORD: password
     steps:
       - checkout
       - run:
@@ -13,3 +22,7 @@ jobs:
             apt-get install -y openjdk-8-jdk
             apt-get install -y maven
             mvn clean install
+      - run:
+          name: Mysql database
+          command: mysql -h 127.0.0.1 -u root -p password -e "create database cloudws;
+
