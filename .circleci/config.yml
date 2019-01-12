@@ -6,8 +6,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install jPython deps in a venv
-            command: |
-              apt-get update
-              apt-get upgrade
-              apt-get install openjdk-8-jdk
+          name: Install openjdk-8
+          command: |
+            apt-get update
+            apt-get upgrade
+            apt-get install openjdk-8-jdk
