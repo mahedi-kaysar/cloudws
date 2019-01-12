@@ -7,10 +7,12 @@ jobs:
           MYSQL_HOST: 127.0.0.1
           MYSQL_DB: cloudws
           MYSQL_USER: root
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_PASSWORD: passsword
       - image: circleci/mysql:5.7.24
         environment:
           MYSQL_USER: root
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_PASSWORD: password
     steps:
       - checkout
@@ -25,7 +27,7 @@ jobs:
           name: create mysql database (cloudws)
           command: |
             apt-get install -y mysql-client
-            mysql -h 127.0.0.1 -u root -p password -e "create database cloudws;"
+            mysql -h 127.0.0.1 -u root -e "create database cloudws;"
       - run:
           name: build cloudws project.
           command: mvn clean install
