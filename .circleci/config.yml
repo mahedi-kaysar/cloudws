@@ -8,21 +8,21 @@ jobs:
           MYSQL_DB: cloudws
           MYSQL_USER: root
           MYSQL_PASSWORD: passsword
-      - image: mysql: 5.7
+      - image: mysql:5.7
         environment:
           MYSQL_USER: root
           MYSQL_PASSWORD: password
     steps:
       - checkout
       - run:
-          name: Install openjdk-8
+          name: Install openjdk-8 and maven
           command: |
             apt-get -y update
             apt-get -y upgrade
             apt-get install -y openjdk-8-jdk
             apt-get install -y maven
       - run:
-          name: Mysql database
+          name: create mysql database (cloudws)
           command: mysql -h 127.0.0.1 -u root -p password -e "create database cloudws;
       - run:
           name: build cloudws project.
