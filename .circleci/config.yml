@@ -19,11 +19,11 @@ jobs:
             apt-get -y upgrade
             apt-get install -y openjdk-8-jdk
             apt-get install -y maven
-      - run:
-          name: create mysql database (cloudws)
-          command: |
+#      - run:
+#          name: create mysql database (cloudws)
+#          command: |
 #            systemctl status mysql.service
-            apt-get install -y mysql-client
+#            apt-get install -y mysql-client
 #            mysql -h 127.0.0.1 -u root -e "create database cloudws;"
       - run:
           name: build cloudws project.
