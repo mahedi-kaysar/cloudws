@@ -5,4 +5,4 @@ jobs:
       - image: ubuntu:16.04
     steps:
       - checkout
-      - run: echo "A first hello"
+      - run: mvn clean install
