@@ -2,7 +2,6 @@ package com.mycompany.cloudws.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  *

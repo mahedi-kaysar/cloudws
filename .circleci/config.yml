@@ -5,7 +5,6 @@ jobs:
       - image: ubuntu:16.04
       - image: circleci/mysql:5.7.24
         environment:
-#          MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_ROOT_PASSWORD: 'password'
           MYSQL_DATABASE: cloudws
           MYSQL_ROOT_HOST: 127.0.0.1
@@ -13,19 +12,13 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install openjdk-8 and maven
+          name: Install dependencies
           command: |
             apt-get -y update
             apt-get -y upgrade
             apt-get install -y openjdk-8-jdk
             apt-get install -y maven
-#      - run:
-#          name: create mysql database (cloudws)
-#          command: |
-#            systemctl status mysql.service
-#            apt-get install -y mysql-client
-#            mysql -h 127.0.0.1 -u root -e "create database cloudws;"
       - run:
-          name: build cloudws project.
+          name: Build cloudws project.
           command: mvn clean install
 
